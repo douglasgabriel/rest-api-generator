@@ -1,0 +1,26 @@
+{
+    "resources" : [
+        {
+            "name" : "users",
+            "properties" : {
+                "name" : {
+                    "type" : "String"
+                },
+                "age" : {
+                    "type" : "Number"
+                }
+            }
+        },
+        {
+            "name" : "cars",
+            "properties" : {
+                "brand" : {
+                    "type" : "String"
+                },
+                "model" : {
+                    "type" : "String"
+                }
+            }
+        }
+    ]
+}

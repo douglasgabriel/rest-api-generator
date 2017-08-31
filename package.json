@@ -1,0 +1,21 @@
+{
+  "name": "ivent",
+  "version": "1.0.0",
+  "description": "Rest API Ivent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "douglasgabriel",
+  "license": "ISC",
+  "devDependencies": {
+    "mongoose": "^4.11.9",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7"
+  }
+}
