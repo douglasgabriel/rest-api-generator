@@ -23,6 +23,8 @@ class GenericController {
     /**
      * Returns a list of the elements on repository.
      * 
+     * If there is a parameter on url, then it will be filter by those parameters.
+     * 
      * @param {Request} req - object that represents the request of the client.
      * @param {Response} res - object that represents the response that will be served to client.
      * 
@@ -30,7 +32,9 @@ class GenericController {
      */
     get(req, res){
 
-        this.Model.find({}, (err, model) => {
+        const query = req.params || {};
+
+        this.Model.find(query, (err, model) => {
 
             if (err){
                 req.send(err);
@@ -40,20 +44,6 @@ class GenericController {
 
         });
         
-    }
-    
-    getById(req, res){
-    
-        this.Model.findById(req.params.id, (err, model) => {
-
-            if (err){
-                req.send(err);
-            }
-
-            res.json(model);
-
-        });
-
     }
         
     /**
@@ -80,23 +70,38 @@ class GenericController {
         
     }
 
-    put(req, res){
+    /**
+     * Udates the element that has the id pass in the 
+     * url.
+     * 
+     * @param {Request} req - object that represents the request of the client.
+     * @param {Response} res - object that represents the response that will be served to client.
+     * @param {Function} next - callback called if an error occur in the function execution
+     * 
+     * @author douglasgabriel
+     * @author davileal
+     */
+    put(req, res, next){
 
-        this.Model.findById(req.params.id, (err, mod) =>{
+        var query = req.params || {};
+
+        this.Model.find(query, (err, mod) =>{
 
             if(!mod){
                 return next(new Error('Document not find'));
             }
 
-            else{
-                const model = new this.Model(req.body);
+            else{                
 
-                model.save((err, newModel) => {
+                this.Model.findOneAndUpdate(query, req.body, {new : true}, (err, mod) => {
+
                     if (err){
                         res.send(err);
                     }
-                    res.json({newModel});
+                    res.json({mod});
+
                 });
+                
             }
 
         });

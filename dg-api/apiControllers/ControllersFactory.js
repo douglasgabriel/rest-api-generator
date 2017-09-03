@@ -17,7 +17,7 @@ const defineRoutes = (app, apiDefinitions) => {
         const baseUri = apiDefinitions.baseUri || "/";
 
         const uri = baseUri + resource.name;
-        const uriId = baseUri + resource.name + "/:id";
+        const uriId = baseUri + resource.name + "/:_id";
 
         console.log(' - Defining route:', uri);
         console.log(' - Defining route:', uriId);
@@ -25,14 +25,14 @@ const defineRoutes = (app, apiDefinitions) => {
         const genericController = new GenericController(resource);
 
         const getFunction = genericController.get.bind(genericController);
-        const getByIdFunction = genericController.getById.bind(genericController);
+        //const getByIdFunction = genericController.getById.bind(genericController);
         const postFunction = genericController.post.bind(genericController);
         const putFunction = genericController.put.bind(genericController);
         const deleteFunction = genericController.delete.bind(genericController);
 
         //Routes with id
         app.route(uriId)
-            .get(getByIdFunction)
+            .get(getFunction)
             .delete(deleteFunction)
             .put(putFunction);
         
