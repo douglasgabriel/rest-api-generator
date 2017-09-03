@@ -13,9 +13,6 @@ mongoose.connect('mongodb://localhost/ivent');
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-/* const routes = require('./routes/userRoutes');
-routes(app); */
-
 app.listen(PORT);
 
 console.log('server is up on port: ' + PORT);

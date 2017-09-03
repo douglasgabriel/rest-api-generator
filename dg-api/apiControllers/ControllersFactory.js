@@ -1,5 +1,13 @@
 const GenericController = require('./GenericController');
 
+/**
+ * Setting the routes of the resources 
+ * 
+ * @param {JSON} app - the express app
+ * @param {JSON} apiDefinitions  - the definitions of the api to generate
+ * 
+ * @author douglasgabriel
+ */
 const defineRoutes = (app, apiDefinitions) => {
 
      console.log('Defining api routes');
@@ -22,6 +30,9 @@ const defineRoutes = (app, apiDefinitions) => {
 
 }
 
+/**
+ * Builds the Rest API.
+ */
 exports.build = (app, apiDefinitions) => {
 
     defineRoutes(app, apiDefinitions);
