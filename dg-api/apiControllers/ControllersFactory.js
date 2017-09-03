@@ -14,8 +14,10 @@ const defineRoutes = (app, apiDefinitions) => {
 
      apiDefinitions.resources.forEach(resource => {
         
-        const uri = "/" + resource.name;
-        const uriId = "/" + resource.name + "/:id";
+        const baseUri = apiDefinitions.baseUri || "/";
+
+        const uri = baseUri + resource.name;
+        const uriId = baseUri + resource.name + "/:id";
 
         console.log(' - Defining route:', uri);
         console.log(' - Defining route:', uriId);

@@ -1,4 +1,5 @@
 {
+    "baseUri" : "/v1/api/",
     "resources" : [
         {
             "name" : "users",

@@ -25,6 +25,7 @@ You can configure the API adding new resources and setting its configurations on
 <pre>
 
 {
+    "baseUri" : "/v1/api/",
     "resources" : [
         {
             "name" : "users",
@@ -57,7 +58,8 @@ Where:
 
 | Property             | Value                                |
 |----------------------|--------------------------------------|
+| baseUri              | The URI that will be add to the beginning of the endpoints |
 | resources            | An array of the resources of the API |
-| resources.name       | The name of the resource that will be use to mount the endpoints and the models inside MongoDB|
+| resources.name       | The name of the resource that will be use to mount the endpoints and the models inside MongoDB |
 | resources.properties | The fields of the model that is represented by the resource. Inside this property you can put the attributes of the model and define its types |
 
